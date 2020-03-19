@@ -20,12 +20,13 @@ DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" > /dev/null && pwd)"
 
 function run-proxy-agent {
   # Start the proxy process
+  # https://github.com/google/inverting-proxy/blob/master/agent/Dockerfile
   /opt/bin/proxy-forwarding-agent \
         --debug=${DEBUG} \
         --proxy=${PROXY_URL} \
         --proxy-timeout=${PROXY_TIMEOUT} \
         --backend=${BACKEND_ID} \
-        --host="${JUPYTERLAB_SERVICE_HOST}:${JUPYTERLAB_SERVICEPORT}" \
+        --host="${JUPYTERLAB_SERVICE_HOST}:${JUPYTERLAB_SERVICE_PORT}" \
         --shim-websockets=true \
         --shim-path=websocket-shim \
         --health-check-path=${HEALTH_CHECK_PATH} \

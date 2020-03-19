@@ -14,7 +14,7 @@ spec:
         app: jupyterlab
     spec:
       containers:
-      - image: gcr.io/deeplearning-platform-release/base-cpu:m34
+      - image: gcr.io/deeplearning-platform-release/base-cpu:latest
         imagePullPolicy: IfNotPresent
         name: jupyterlab
         ports:
