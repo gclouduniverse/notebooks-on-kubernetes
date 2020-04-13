@@ -1,0 +1,29 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: proxy-agent-<JUPYTERLAB_ID_SAFE>
+  labels:
+    app: proxy-agent-<JUPYTERLAB_ID_SAFE>
+spec:
+  selector:
+    matchLabels:
+      app: proxy-agent-<JUPYTERLAB_ID_SAFE>
+  template:
+    metadata:
+      labels:
+        app: proxy-agent-<JUPYTERLAB_ID_SAFE>
+    spec:
+      containers:
+      - name: proxy-agent
+        image: gcr.io/mam-nooage/agent:gke
+        imagePullPolicy: Always
+        env:
+          # Must be the same as in agent/service.yaml
+          - name: JUPYTERLAB_SERVICE_NAME
+            value: jupyterlab-<JUPYTERLAB_ID_SAFE>
+          # Used to create the unique configmap when deploying the agent.
+          - name: JUPYTERLAB_ID_SAFE
+            value: <JUPYTERLAB_ID_SAFE>
+          - name: JUPYTERLAB_ID_EMAIL
+            value: <JUPYTERLAB_ID_EMAIL>
+      serviceAccountName: agent-runner

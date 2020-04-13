@@ -11,3 +11,10 @@ rules:
   - configmaps
   verbs:
   - '*'
+# Only needed if we needed to do a kubectl get services in attempt-register-vm-on-proxy.sh
+# - apiGroups:
+#   - ""
+#   resources:
+#   - configmaps
+#   verbs:
+#   - '*'

@@ -1,0 +1,2 @@
+- [configs](./configs) contains GKE configuration files.
+- Other files manage GKE configurations.

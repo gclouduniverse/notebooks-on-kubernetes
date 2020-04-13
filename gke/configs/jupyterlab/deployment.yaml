@@ -1,0 +1,25 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: jupyterlab-<JUPYTERLAB_ID_SAFE>
+  labels:
+    app: jupyterlab-<JUPYTERLAB_ID_SAFE>
+spec:
+  selector:
+    matchLabels:
+      app: jupyterlab-<JUPYTERLAB_ID_SAFE>
+  template:
+    metadata:
+      labels:
+        app: jupyterlab-<JUPYTERLAB_ID_SAFE>
+    spec:
+      containers:
+      - name: jupyterlab-<JUPYTERLAB_ID_SAFE>
+        image: gcr.io/mam-nooage/ain:gke
+        imagePullPolicy: Always
+        env:
+        - name: USER_NOTEBOOK_LOCATION
+          value: gs://<GCS_NOTEBOOK_BUCKET>/allusers/department/<JUPYTERLAB_ID_EMAIL>
+        ports:
+        - containerPort: 8080
+      serviceAccountName: default
