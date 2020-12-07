@@ -1,9 +1,9 @@
 Inspired by this [article](https://blog.kovalevskyi.com/running-cloud-ai-platform-notebook-on-google-kubernetes-engine-8e161f1b1dc0)
 
-This code creates a Jupterlab setup for a list of users. For each users, you set up:
-- A JupyterLab deployment to run the Notebooks.
-- A Service to access your JupyterLab environment.
-- An Inverting Proxy Agent deployment to get a unique URL per user (and per node)
+This code creates a JupyterLab setup for a list of users. For each user, you set up:
+ 1. A JupyterLab deployment to run the Notebooks.
+ 2. A Service to access your JupyterLab environment.
+ 3. An Inverting Proxy Agent deployment to get a unique URL per user (and per node)
 
 ## Deploy Kubernetes
 
@@ -17,13 +17,13 @@ This code creates a Jupterlab setup for a list of users. For each users, you set
     ZONE="us-central1-a"
     ```
 
-1. Install tools
+1. Install Kubernetes tools
 
     ```sh
     gcloud components install kubectl --quiet
     ```
 
-1. Create the cluster
+1. Create the managed Kubernetes cluster (GKE)
 
     ```sh
     gcloud beta container clusters create ${CLUSTER_NAME} \
