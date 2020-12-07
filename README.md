@@ -69,11 +69,11 @@ To deploy one or several Notebook servers on GKE, do the following:
     gcloud builds submit --tag ${DOCKER_IMAGE_JUPYTERLAB} ./docker/jupyterlab
     ```
 
-1. Update the image reference for [JupyterLab](gke/jupyterlab/deployment.yaml)
+1. Update the image reference for [JupyterLab](gke/configs/upyterlab/deployment.yaml)
 
     ```sh
     # You can do manually in the file
-    sed -i "s/<DOCKER_IMAGE_JUPYTERLAB>/${DOCKER_IMAGE_JUPYTERLAB}/g" "gke/jupyterlab/deployment.yaml"
+    sed -i "s/<DOCKER_IMAGE_JUPYTERLAB>/${DOCKER_IMAGE_JUPYTERLAB}/g" "gke/configs/jupyterlab/deployment.yaml"
     ```
 
 1. Create a Docker image for the Inverting Proxy agent.
@@ -84,11 +84,11 @@ To deploy one or several Notebook servers on GKE, do the following:
     gcloud builds submit --tag  ${DOCKER_IMAGE_AGENT} ./docker/agent
     ```
 
-1. Update the docker image for the [agent] (gke/agent/deployment.yaml)
+1. Update the docker image for the [agent] (gke/configs/agent/deployment.yaml)
 
     ```sh
     # You can do manually in the file
-    sed -i "s/<DOCKER_IMAGE_AGENT>/${DOCKER_IMAGE_AGENT}/g" "gke/agent/deployment.yaml"
+    sed -i "s/<DOCKER_IMAGE_AGENT>/${DOCKER_IMAGE_AGENT}/g" "gke/configs/agent/deployment.yaml"
     ```
 
 1. Run the deploy script. The deploy script creates temporary GKE yaml files for each ids then deploy.
