@@ -78,8 +78,7 @@ To deploy one or several Notebook servers on GKE, do the following:
 
 1. Create a Docker image for the Inverting Proxy agent.
 
-    - This step is not required if you use the Agent image provided by Google as a public image on gcr.io registry. If you do not know the URL, build the image and host it where relevant.
-    - TODO(Google): Host a public image
+    - This step is not required if you use the Agent image provided by Google as a public image on gcr.io registry. If you do not know the URL, build the image and host it where relevant. Example: `gcr.io/inverting-proxy/agent`
 
     ```sh
     gcloud builds submit --tag  ${DOCKER_IMAGE_AGENT} ./docker/agent
