@@ -69,7 +69,7 @@ To deploy one or several Notebook servers on GKE, do the following:
     gcloud builds submit --tag ${DOCKER_IMAGE_JUPYTERLAB} ./docker/jupyterlab
     ```
 
-1. Update the image reference for [JupyterLab] (gke/jupyterlab/deployment.yaml)
+1. Update the image reference for [JupyterLab](gke/jupyterlab/deployment.yaml)
 
     ```sh
     # You can do manually in the file
