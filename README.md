@@ -107,7 +107,7 @@ To deploy one or several Notebook servers on GKE, do the following:
 1. Get Inverting proxy URLs
 
     ```sh
-    bash get_urls ${DEPLOYMENT_NAMES_LIST}
+    bash get_urls.sh ${DEPLOYMENT_NAMES_LIST}
     ```
 
 1. Access a Notebook using the relevant URL. Note people logged to Google can only access the URL that matches the identity.
