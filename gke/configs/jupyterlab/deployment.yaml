@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: jupyterlab-<JUPYTERLAB_ID_SAFE>
-        image: gcr.io/mam-nooage/ain:gke
+        image: <DOCKER_IMAGE_JUPYTERLAB>
         imagePullPolicy: Always
         env:
         - name: USER_NOTEBOOK_LOCATION
