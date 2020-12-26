@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: proxy-agent
-        image: gcr.io/mam-nooage/agent:gke
+        image: <DOCKER_IMAGE_AGENT>
         imagePullPolicy: Always
         env:
           # Must be the same as in agent/service.yaml
